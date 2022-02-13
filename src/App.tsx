@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import './App.css'
-import Quote from './components/Quote'
+import Homepage from './pages/Home'
+import Random from './pages/RandomQuote'
 
 export type QuoteType = {
   text: string
@@ -9,18 +11,21 @@ export type QuoteType = {
 
 function App() {
   const [quotes, setQuotes] = useState<QuoteType[]>([])
+
   useEffect(() => {
-    fetch('http://localhost:3001/quotes').then(resp => resp.json()).then(quotes => setQuotes(quotes))
+    fetch('http://localhost:3001/quotes')
+      .then(resp => resp.json())
+      .then(quotes => setQuotes(quotes))
   }, [])
+
 
   return (
     <div className="App">
-      <h1>Quotes</h1>
-      <ul className='quotes-list'>
-        {
-          quotes.map((quote, index) => <Quote quote={quote} key={index} />)
-        }
-      </ul>
+      <Routes>
+        <Route index element={<Navigate replace to='/home' />} />
+        <Route path='/home' element={<Homepage quotes={quotes} />} />
+        <Route path='/randomquote' element={<Random />} />
+      </Routes>
     </div>
   )
 }
