@@ -38,3 +38,40 @@ h1{
   border-radius: 10px;
   margin-left: 3rem;
 }
+img{
+  width: 100%;
+}
+.details{
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+.quotedetails{
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid rgb(101, 101, 201);
+}
+.author-details{
+  display: grid;
+  gap: 20px;
+  text-align: center;
+}
+.form{
+  display: grid;
+  padding: 0.5rem;
+  border: 1px solid rgb(101, 101, 201);
+}
+.form-section{
+  display: grid;
+  justify-content: right;
+  margin-right: 4rem;
+}
+.label{
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap :10px;
+  padding: 5px;
+}

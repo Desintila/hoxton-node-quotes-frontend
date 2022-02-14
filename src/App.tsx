@@ -3,10 +3,14 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Homepage from './pages/Home'
 import Random from './pages/RandomQuote'
-
+import QuoteDetails from './pages/QuoteDetails'
 export type QuoteType = {
   text: string
-  author: string
+  firstName: string
+  lastName: string
+  image: string
+  age: number
+  id: number
 }
 
 function App() {
@@ -23,8 +27,9 @@ function App() {
     <div className="App">
       <Routes>
         <Route index element={<Navigate replace to='/home' />} />
-        <Route path='/home' element={<Homepage quotes={quotes} />} />
+        <Route path='/home' element={<Homepage quotes={quotes} setQuotes={setQuotes} />} />
         <Route path='/randomquote' element={<Random />} />
+        <Route path='/home/:id' element={<QuoteDetails />} />
       </Routes>
     </div>
   )

@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom"
 import { QuoteType } from "../App"
 
 type Props = {
@@ -5,10 +6,11 @@ type Props = {
 }
 
 function Quote({ quote }: Props) {
+    const navigate = useNavigate()
     return (
-        <li className="quote">
+        <li className="quote" onClick={() => navigate(`/home/${quote.id}`)}>
             <h3>{quote.text}</h3>
-            <span className="author">-{quote.author}</span>
+            <span className="author">-{quote.firstName} {quote.lastName}</span>
         </li>
     )
 }
