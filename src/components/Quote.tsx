@@ -1,16 +1,32 @@
 import { useNavigate } from "react-router-dom"
-import { QuoteType } from "../App"
+import { QuoteProps } from "../Types/type"
 
-type Props = {
-    quote: QuoteType
-}
 
-function Quote({ quote }: Props) {
+
+
+function Quote({ quote, setQuotes, quotes }: QuoteProps) {
     const navigate = useNavigate()
+
+    function deleteQuote(id: number) {
+        return fetch(`http://localhost:3001/quotes/${id}`, {
+            method: 'DELETE'
+        })
+    }
+
+    function removeQuote() {
+        let update = [...quotes]
+        deleteQuote(quote.id)
+        update = update.filter(targetQuote => targetQuote.id !== quote.id)
+        setQuotes(update)
+    }
+
     return (
-        <li className="quote" onClick={() => navigate(`/home/${quote.id}`)}>
-            <h3>{quote.text}</h3>
-            <span className="author">-{quote.firstName} {quote.lastName}</span>
+        <li className="quote" >
+            <button className="delete-btn" onClick={() => removeQuote()}>X</button>
+            <article onClick={() => navigate(`/home/${quote.id}`)}>
+                <h3 >{quote.text}</h3>
+                <span className="author">-{quote.firstName} {quote.lastName}</span>
+            </article>
         </li>
     )
 }

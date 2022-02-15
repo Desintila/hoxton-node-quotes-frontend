@@ -10,34 +10,64 @@
   justify-content: center;
 }
 .quote{
-  border: 1px solid rgb(101, 101, 201);
+  border: 1px solid #007ead;
   display: grid;
   gap: 10px;
   padding: 1rem;
+  position: relative;
+}
+.header{
+  position: sticky;
+  background-color: #007ead;
+  height: 60px;
+  width: 100%;
+  z-index: 3;
+  top: 0;
+  display: grid;
+  align-content: center;
+  grid-template-columns: 150px 1fr;
+}
+
+.right-nav{
+  display: grid;
+  justify-content: end;
+  align-items: center;
+}
+
+.nav-list{
+  list-style: none;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 2rem;
+  color: white;
+  margin-right: 1.5rem;
+}
+.delete-btn{
+ position: absolute;
+ top: -0.5rem;
+ right: 0;
+ border-radius: 5px;
+ border: none;
+ font-size: 1.4rem;
+ color: white;
+ background-color: #007ead;
 }
 .author{
   text-align: end;
 }
 h1{
-  color:rgb(101, 101, 201);
-  text-align: center;
+  color:white;
+  margin-left: 2rem;
 }
 .randomquote{
-  border: 1px solid rgb(101, 101, 201);
+  border: 1px solid #007ead;
   display: grid;
   place-items: center;
   gap: 10px;
   padding: 1rem;
   margin-top: 2rem;
 }
-.randomquote-button{
-  background-color: transparent;
-  padding: 5px;
-  border: 1px solid gainsboro;
-  color: rgb(104, 104, 182);
-  border-radius: 10px;
-  margin-left: 3rem;
-}
+
 img{
   width: 100%;
 }
@@ -52,7 +82,7 @@ img{
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  border: 1px solid rgb(101, 101, 201);
+  border: 1px solid #007ead;
 }
 .author-details{
   display: grid;
@@ -61,17 +91,17 @@ img{
 }
 .form{
   display: grid;
-  padding: 0.5rem;
-  border: 1px solid rgb(101, 101, 201);
+  padding: 1rem;
+  border: 1px solid #007ead;
 }
 .form-section{
   display: grid;
-  justify-content: right;
-  margin-right: 4rem;
+  justify-content: center;
+  text-align: center;
 }
 .label{
   display: grid;
   grid-template-columns: 100px 1fr;
   gap :10px;
-  padding: 5px;
+  padding: 10px;
 }

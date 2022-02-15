@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
-import { QuoteType } from "../App"
+import { QuoteType } from "../Types/type"
+
 
 
 function Random() {

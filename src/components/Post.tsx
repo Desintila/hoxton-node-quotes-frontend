@@ -1,11 +1,9 @@
-import { QuoteType } from "../App"
+import { useNavigate } from "react-router-dom"
+import { Props } from "../Types/type"
 
-type Props = {
-    quotes: QuoteType[]
-    setQuotes: Function
-}
 
 function Post({ quotes, setQuotes }: Props) {
+    const navigate = useNavigate()
 
     function createQuote(quote: string, firstname: string, lastname: string, image: string, age: number) {
         return fetch('http://localhost:3001/quotes', {
@@ -35,10 +33,12 @@ function Post({ quotes, setQuotes }: Props) {
             updateQuotes.push(newquote)
             setQuotes(updateQuotes)
         })
+
+        navigate('/home')
     }
     return (
         <section className="form-section">
-            <h2>Add a new quote</h2>
+            <h2 className="new-quote">Add a new quote</h2>
             <form className="form" onSubmit={(event) =>
 
                 onSubmit(event)}>

@@ -4,14 +4,11 @@ import './App.css'
 import Homepage from './pages/Home'
 import Random from './pages/RandomQuote'
 import QuoteDetails from './pages/QuoteDetails'
-export type QuoteType = {
-  text: string
-  firstName: string
-  lastName: string
-  image: string
-  age: number
-  id: number
-}
+import Header from './components/Header'
+import NewQuote from './pages/NewQuote'
+import { QuoteType } from './Types/type'
+
+
 
 function App() {
   const [quotes, setQuotes] = useState<QuoteType[]>([])
@@ -25,11 +22,14 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
+
       <Routes>
         <Route index element={<Navigate replace to='/home' />} />
         <Route path='/home' element={<Homepage quotes={quotes} setQuotes={setQuotes} />} />
         <Route path='/randomquote' element={<Random />} />
         <Route path='/home/:id' element={<QuoteDetails />} />
+        <Route path='/addquote' element={<NewQuote quotes={quotes} setQuotes={setQuotes} />} />
       </Routes>
     </div>
   )
