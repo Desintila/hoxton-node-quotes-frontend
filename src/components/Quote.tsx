@@ -23,9 +23,9 @@ function Quote({ quote, setQuotes, quotes }: QuoteProps) {
     return (
         <li className="quote" >
             <button className="delete-btn" onClick={() => removeQuote()}>X</button>
-            <article onClick={() => navigate(`/home/${quote.id}`)}>
+            <article className="article" onClick={() => navigate(`/home/${quote.id}`)}>
                 <h3 >{quote.text}</h3>
-                <span className="author">-{quote.firstName} {quote.lastName}</span>
+                <span className="author-name">-{quote.author.firstName} {quote.author.lastName}</span>
             </article>
         </li>
     )

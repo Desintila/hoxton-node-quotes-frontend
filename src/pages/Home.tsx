@@ -2,7 +2,9 @@ import Quote from '../components/Quote'
 import { Props } from '../Types/type'
 
 
+
 function Homepage({ quotes, setQuotes }: Props) {
+    console.log(quotes)
     return (
 
         <div>
