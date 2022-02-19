@@ -1,18 +1,28 @@
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { Props } from "../Types/type"
+import { AuthorType } from "../Types/type"
 
 
-function Post({ quotes, setQuotes }: Props) {
+
+function Post() {
     const navigate = useNavigate()
+    const [authors, setAuthors] = useState<AuthorType[]>([])
 
-    function createQuote(quote: string, firstname: string, lastname: string, image: string, age: number) {
-        return fetch('http://localhost:3001/quotes', {
+    useEffect(() => {
+        fetch('http://localhost:3001/quotes')
+            .then(resp => resp.json())
+            .then(authors => setAuthors(authors))
+    }, [])
+
+
+
+    function createAuthor(firstname: string, lastname: string, image: string, age: number) {
+        return fetch('http://localhost:3001/authors', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                text: quote,
                 firstName: firstname,
                 lastName: lastname,
                 image: image,
@@ -22,29 +32,27 @@ function Post({ quotes, setQuotes }: Props) {
     }
     function onSubmit(event: any): void {
         event.preventDefault()
-        const quote = event.target.quote.value
+
         const firstname = event.target.firstname.value
         const lastname = event.target.lastname.value
         const image = event.target.image.value
         const age = Number(event.target.age.value)
 
-        createQuote(quote, firstname, lastname, image, age).then(function (newquote) {
-            const updateQuotes = JSON.parse(JSON.stringify(quotes))
-            updateQuotes.push(newquote)
-            setQuotes(updateQuotes)
+        createAuthor(firstname, lastname, image, age).then(function (newAuthor) {
+            const updateAuthors = JSON.parse(JSON.stringify(authors))
+            updateAuthors.push(newAuthor)
+            setAuthors(updateAuthors)
         })
 
         navigate('/home')
     }
     return (
         <section className="form-section">
-            <h2 className="new-quote">Add a new quote</h2>
+            <h2 className="new-quote">Add a new Author</h2>
             <form className="form" onSubmit={(event) =>
 
                 onSubmit(event)}>
-                <label className="label" >Quote:
-                    <input type="text" name="quote" />
-                </label>
+
                 <label className="label">First Name:
                     <input type="text" name="firstname" />
                 </label>

@@ -5,7 +5,7 @@ import { Props } from "../Types/type"
 function NewQuote({ quotes, setQuotes }: Props) {
     return (
         <main>
-            <Post quotes={quotes} setQuotes={setQuotes} />
+            <Post />
         </main>
     )
 }

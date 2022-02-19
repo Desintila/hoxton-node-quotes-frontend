@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { quotedetails } from "../Types/type"
+import { QuoteType } from "../Types/type"
 
 
 
 function QuoteDetails() {
-    const [quote, setQuote] = useState<quotedetails | null>(null)
+    const [quote, setQuote] = useState<QuoteType | null>(null)
 
     const params = useParams()
 
@@ -17,7 +17,7 @@ function QuoteDetails() {
     }, [])
 
     if (quote === null) return <h1>Loading...</h1>
-    console.log(quote)
+
     return (
         <section className="details">
             <div className="quotedetails">

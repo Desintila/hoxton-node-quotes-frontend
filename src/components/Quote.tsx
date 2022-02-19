@@ -15,8 +15,8 @@ function Quote({ quote, setQuotes, quotes }: QuoteProps) {
 
     function removeQuote() {
         let update = [...quotes]
-        deleteQuote(quote.id)
         update = update.filter(targetQuote => targetQuote.id !== quote.id)
+        deleteQuote(quote.id)
         setQuotes(update)
     }
 
@@ -25,7 +25,7 @@ function Quote({ quote, setQuotes, quotes }: QuoteProps) {
             <button className="delete-btn" onClick={() => removeQuote()}>X</button>
             <article className="article" onClick={() => navigate(`/home/${quote.id}`)}>
                 <h3 >{quote.text}</h3>
-                <span className="author-name">-{quote.author.firstName} {quote.author.lastName}</span>
+                <span className="author-name">-{quote.firstName} {quote.lastName}</span>
             </article>
         </li>
     )

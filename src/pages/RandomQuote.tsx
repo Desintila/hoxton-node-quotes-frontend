@@ -20,7 +20,7 @@ function Random() {
             <h1>Random Quote of the day</h1>
             <div className="randomquote">
                 <h2 >{randomQuote.text}</h2>
-                <span className="author">{randomQuote.author?.firstName} {randomQuote.author?.lastName}</span>
+                <span className="author">{randomQuote.firstName} {randomQuote.lastName}</span>
             </div>
         </div>
     )

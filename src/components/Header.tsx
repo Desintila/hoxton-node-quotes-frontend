@@ -9,7 +9,7 @@ function Header() {
             <nav className="right-nav">
                 <ul className="nav-list">
                     <li onClick={() => navigate('/randomquote')}>Random Quote</li>
-                    <li onClick={() => navigate('/addquote')}>New Quote</li>
+                    <li onClick={() => navigate('/addquote')}>New  Author</li>
                 </ul>
             </nav>
         </header>
