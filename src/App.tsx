@@ -14,7 +14,7 @@ function App() {
   const [quotes, setQuotes] = useState<QuoteType[]>([])
 
   useEffect(() => {
-    fetch('http://localhost:3001/quotes')
+    fetch('https://neighborly-odd-leotard.glitch.me/quotes')
       .then(resp => resp.json())
       .then(quotes => setQuotes(quotes))
   }, [])

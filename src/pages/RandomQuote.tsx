@@ -6,7 +6,7 @@ import { QuoteType } from "../Types/type"
 function Random() {
     const [randomQuote, setRandomQuote] = useState<QuoteType | null>(null)
     useEffect(() => {
-        fetch('http://localhost:3001/randomquote')
+        fetch('https://neighborly-odd-leotard.glitch.me/randomquote')
             .then(resp => resp.json())
             .then(randomQuote => setRandomQuote(randomQuote))
     }, [])

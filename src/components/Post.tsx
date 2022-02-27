@@ -9,7 +9,7 @@ function Post() {
     const [authors, setAuthors] = useState<AuthorType[]>([])
 
     useEffect(() => {
-        fetch('http://localhost:3001/quotes')
+        fetch('https://neighborly-odd-leotard.glitch.me/quotes')
             .then(resp => resp.json())
             .then(authors => setAuthors(authors))
     }, [])
@@ -17,7 +17,7 @@ function Post() {
 
 
     function createAuthor(firstname: string, lastname: string, image: string, age: number) {
-        return fetch('http://localhost:3001/authors', {
+        return fetch('https://neighborly-odd-leotard.glitch.me/authors', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

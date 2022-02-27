@@ -8,7 +8,7 @@ function Quote({ quote, setQuotes, quotes }: QuoteProps) {
     const navigate = useNavigate()
 
     function deleteQuote(id: number) {
-        return fetch(`http://localhost:3001/quotes/${id}`, {
+        return fetch(`https://neighborly-odd-leotard.glitch.me/quotes/${id}`, {
             method: 'DELETE'
         })
     }

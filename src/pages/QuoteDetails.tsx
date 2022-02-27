@@ -11,7 +11,7 @@ function QuoteDetails() {
 
 
     useEffect(() => {
-        fetch(`http://localhost:3001/quotes/${params.id}`)
+        fetch(`https://neighborly-odd-leotard.glitch.me/quotes/${params.id}`)
             .then(resp => resp.json())
             .then(quote => setQuote(quote))
     }, [])
